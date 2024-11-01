@@ -9,7 +9,7 @@ return {
     end,
     keys = {
       {
-        '<leader><leader>',
+        '<leader>?',
         function()
           require('telescope').extensions.scope.buffers()
         end,

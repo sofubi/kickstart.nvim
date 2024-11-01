@@ -15,10 +15,17 @@ return {
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
-
-      -- Jump
-      require('mini.jump').setup()
+      require('mini.surround').setup {
+        mappings = {
+          add = 'zsa',
+          delete = 'zsd',
+          find = 'zsf',
+          find_left = 'zsF',
+          highlight = 'zsh',
+          replace = 'zsr',
+          update_n_lines = 'zsn',
+        },
+      }
 
       -- Move selections
       require('mini.move').setup()

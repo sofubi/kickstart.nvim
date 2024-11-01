@@ -5,9 +5,11 @@ return {
     dependencies = {
       'rktjmp/lush.nvim',
     },
-    init = function()
-      vim.g.background = 'dark'
+    config = function()
+      -- vim.g.zenbones_darken_comments = 80
+      vim.g.zenbones_transparent_background = true
       vim.cmd.colorscheme 'zenbones'
+      vim.g.background = 'dark'
     end,
   },
 }

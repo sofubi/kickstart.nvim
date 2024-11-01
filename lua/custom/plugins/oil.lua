@@ -1,5 +1,14 @@
 return {
   {
+    'refractalize/oil-git-status.nvim',
+
+    dependencies = {
+      'stevearc/oil.nvim',
+    },
+
+    config = true,
+  },
+  {
     'stevearc/oil.nvim',
     event = 'VeryLazy',
     config = function()
@@ -17,6 +26,7 @@ return {
       require('oil').setup {
         win_options = {
           winbar = '%!v:lua.get_oil_winbar()',
+          signcolumn = 'yes:2',
         },
         keymaps = {
           ['gy'] = 'actions.yank_entry',

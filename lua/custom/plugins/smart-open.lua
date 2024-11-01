@@ -14,7 +14,7 @@ return {
     },
     keys = {
       {
-        '<leader>?',
+        '<leader><leader>',
         function()
           require('telescope').extensions.smart_open.smart_open()
         end,
