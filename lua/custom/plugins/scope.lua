@@ -5,6 +5,7 @@ return {
       'nvim-telescope/telescope.nvim',
     },
     config = function()
+      require('scope').setup {}
       require('telescope').load_extension 'scope'
     end,
     keys = {
@@ -16,34 +17,43 @@ return {
         desc = '[ ] Find existing buffers',
       },
       {
-        '<A-[>',
+        '<t',
         '<cmd>tabprevious<cr>',
         desc = 'Previous tab',
       },
       {
-        '<A-]>',
+        '>t',
         '<cmd>tabnext<cr>',
         desc = 'Next tab',
       },
       {
-        '[b',
+        'H',
         '<cmd>bprevious<cr>',
         desc = 'Previous buffer',
       },
       {
-        ']b',
+        'L',
         '<cmd>bnext<cr>',
         desc = 'Next buffer',
       },
       {
-        '<leader>bd',
-        '<cmd>bdelete<cr>',
-        desc = 'Delete current buffer',
+        '<leader>bD',
+        '<cmd>%bd|e#<cr>',
+        desc = 'Delete all other buffers',
       },
       {
-        '<leader>tn',
+        '<leader>bt',
+        desc = '[t]abs',
+      },
+      {
+        '<leader>btn',
         '<cmd>tabnew<cr>',
-        desc = 'New tab',
+        desc = '[n]ew tab',
+      },
+      {
+        '<leader>btd',
+        '<cmd>tabclose<cr>',
+        desc = '[d]elete tab',
       },
     },
   },

@@ -5,7 +5,9 @@ return {
     cmd = 'Norg',
     version = '*',
     dependencies = {
-      'vhyrro/luarocks.nvim',
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-neorg/neorg-telescope' },
+      { 'vhyrro/luarocks.nvim' },
     },
     lazy = false,
     config = function()
@@ -30,6 +32,7 @@ return {
               default_workspace = 'notes',
             },
           },
+          ['core.integrations.telescope'] = {},
         },
       }
       vim.wo.foldlevel = 99
@@ -38,7 +41,7 @@ return {
     keys = {
       {
         '<leader>N',
-        '<cmd>Neorg index<cr>',
+        '<Plug>(neorg.telescope.find_norg_files)',
         desc = 'Open Neorg index',
       },
     },
