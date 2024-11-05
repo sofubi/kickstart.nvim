@@ -14,7 +14,7 @@ return {
         function()
           require('telescope').extensions.scope.buffers()
         end,
-        desc = '[ ] Find existing buffers',
+        desc = '[?] Find existing buffers',
       },
       {
         '<t',
@@ -37,9 +37,14 @@ return {
         desc = 'Next buffer',
       },
       {
+        '<leader>bd',
+        '<cmd>bd<cr>',
+        desc = '[d]elete current buffer',
+      },
+      {
         '<leader>bD',
         '<cmd>%bd|e#<cr>',
-        desc = 'Delete all other buffers',
+        desc = '[D]elete all other buffers',
       },
       {
         '<leader>bt',

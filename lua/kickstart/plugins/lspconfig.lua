@@ -12,6 +12,7 @@ return {
       },
     },
   },
+
   { 'Bilal2453/luvit-meta', lazy = true },
   {
     -- Main LSP Configuration
@@ -137,14 +138,16 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         pyright = {
+          capabilities = (function()
+            capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+            return capabilities
+          end)(),
           settings = {
-            python = {
-              disableOrganizeImports = true,
-              analysis = {
-                autoSearchPaths = true,
-                useLibraryForCodeTypes = true,
-                diagnosticMode = 'openFilesOnly',
-              },
+            disableOrganizeImports = true,
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryForCodeTypes = true,
+              diagnosticMode = 'openFilesOnly',
             },
           },
         },

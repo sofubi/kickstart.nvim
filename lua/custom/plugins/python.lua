@@ -1,8 +1,16 @@
 return {
   {
     'linux-cultist/venv-selector.nvim',
+    dependencies = {
+      'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-dap',
+      { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+    },
+    lazy = false,
     branch = 'regexp',
-    cmd = 'VenvSelect',
+    config = function()
+      require('venv-selector').setup()
+    end,
     opts = {
       settings = {
         search = {
@@ -16,14 +24,8 @@ return {
         },
       },
     },
-    ft = 'python',
     keys = {
-      {
-        '<leader>cv',
-        '<cmd>:VenvSelect<cr>',
-        desc = 'Select VirtualEnv',
-        ft = 'python',
-      },
+      { '<leader>cv', '<cmd>VenvSelect<cr>', ft = 'python' },
     },
   },
 }
