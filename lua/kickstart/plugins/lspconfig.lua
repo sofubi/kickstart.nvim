@@ -138,16 +138,15 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         pyright = {
-          capabilities = (function()
-            capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
-            return capabilities
-          end)(),
           settings = {
-            disableOrganizeImports = true,
+            pyright = {
+              disableOrganizeImports = true,
+            },
             analysis = {
               autoSearchPaths = true,
               useLibraryForCodeTypes = true,
               diagnosticMode = 'openFilesOnly',
+              ignore = { '*' },
             },
           },
         },
@@ -179,11 +178,9 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        'stylua',
         'ruff',
-        'mypy',
-        'black',
-        'isort',
+        'pyright',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
