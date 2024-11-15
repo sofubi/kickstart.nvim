@@ -137,16 +137,28 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        ruff = {
+          settings = {
+            trace = 'messages',
+            init_options = {
+              settings = {
+                logLevel = 'debug',
+              },
+            },
+          },
+        },
         pyright = {
           settings = {
             pyright = {
               disableOrganizeImports = true,
             },
-            analysis = {
-              autoSearchPaths = true,
-              useLibraryForCodeTypes = true,
-              diagnosticMode = 'openFilesOnly',
-              ignore = { '*' },
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                useLibraryForCodeTypes = true,
+                diagnosticMode = 'openFilesOnly',
+                ignore = { '*' },
+              },
             },
           },
         },
@@ -179,8 +191,6 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
-        'ruff',
-        'pyright',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

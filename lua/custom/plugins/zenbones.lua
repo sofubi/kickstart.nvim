@@ -1,15 +1,22 @@
 return {
   {
     'zenbones-theme/zenbones.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
     dependencies = {
       'rktjmp/lush.nvim',
     },
+    lazy = false,
+    priority = 1000,
     config = function()
-      -- vim.g.zenbones_darken_comments = 80
-      vim.g.zenbones_transparent_background = true
+      vim.g.zenbones = {
+        darkness = 'stark',
+        solid_line_nr = true,
+        lighten_comments = 45,
+        lighten_non_text = 35,
+        lighten_cursor_line = 6,
+        lighten_line_nr = 40,
+        italic_comments = true,
+      }
       vim.cmd.colorscheme 'zenbones'
-      vim.g.background = 'dark'
     end,
   },
 }
