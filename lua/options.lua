@@ -16,8 +16,10 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Enable break indent
+-- No wrap
 vim.opt.breakindent = true
+vim.opt.sidescroll = 5
+vim.tbl_extend('keep', vim.opt.listchars, { 'preceds:<', 'extends:>' })
 
 -- Save undo history
 vim.opt.undofile = true
