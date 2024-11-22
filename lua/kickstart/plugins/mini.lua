@@ -29,6 +29,9 @@ return {
 
       -- Move selections
       require('mini.move').setup()
+
+      -- Icons
+      require('mini.icons').setup()
     end,
   },
 }
