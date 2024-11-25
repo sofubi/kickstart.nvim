@@ -1,6 +1,7 @@
 return {
   {
     'NeogitOrg/neogit',
+    cmd = 'Neogit',
     dependencies = {
       'nvim-lua/plenary.nvim', -- required
       'sindrets/diffview.nvim', -- optional - Diff integration
@@ -15,7 +16,7 @@ return {
       {
         '<leader>gg',
         function()
-          require('neogit').open()
+          require('neogit').open { kind = 'split' }
         end,
         desc = 'Neogit',
       },
