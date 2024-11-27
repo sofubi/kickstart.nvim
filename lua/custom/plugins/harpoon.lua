@@ -20,30 +20,23 @@ return {
       },
 
       {
-        '<C-h>',
-        function()
-          require('harpoon'):list():select(1)
-        end,
-        desc = 'Harpoon list 1',
-      },
-      {
         '<C-t>',
         function()
-          require('harpoon'):list():select(2)
+          require('harpoon'):list():select(1)
         end,
         desc = 'Harpoon list 2',
       },
       {
         '<C-n>',
         function()
-          require('harpoon'):list():select(3)
+          require('harpoon'):list():select(2)
         end,
         desc = 'Harpoon list 3',
       },
       {
         '<C-s>',
         function()
-          require('harpoon'):list():select(4)
+          require('harpoon'):list():select(3)
         end,
         desc = 'Harpoon list 4',
       },
