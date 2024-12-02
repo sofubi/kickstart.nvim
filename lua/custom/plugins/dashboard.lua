@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd('Filetype', {
 return {
   {
     'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
+    lazy = false,
     config = function()
       require('dashboard').setup {
         theme = 'doom',
