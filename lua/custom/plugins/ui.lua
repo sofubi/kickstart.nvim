@@ -2,6 +2,11 @@ return {
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
+    config = function()
+      require('notify').setup {
+        background_colour = '#000000',
+      }
+    end,
     opts = {
       lsp = {
         override = {
@@ -20,8 +25,8 @@ return {
     },
     dependencies = {
       'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
       'hrsh7th/nvim-cmp',
+      'rcarriga/nvim-notify',
     },
     keys = {
       {

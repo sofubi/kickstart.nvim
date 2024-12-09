@@ -30,7 +30,7 @@ local center = {
     desc = 'Find File ',
     key = 'f',
     icon = ' ',
-    action = 'Telescope find_files',
+    action = 'require("telescope").extensions.smart_open.smart_open()',
     group = '@markup.heading.1.markdown',
   },
   {
@@ -51,15 +51,22 @@ local center = {
     desc = 'Nvim config ',
     key = 'c',
     icon = ' ',
-    action = 'telescope.find_files, { cwd = vim.fn.stdpath("config") }',
+    action = 'require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config")})',
     group = '@markup.heading.4.markdown',
+  },
+  {
+    desc = 'Dots ',
+    key = 'd',
+    icon = ' ',
+    action = 'require("telescope").extensions.yadm.pick()',
+    group = '@markup.heading.5.markdown',
   },
   {
     desc = 'Exit ',
     key = 'q',
     icon = ' ',
     action = 'exit',
-    group = '@markup.heading.5.markdown',
+    group = '@markup.heading.6.markdown',
   },
 }
 
