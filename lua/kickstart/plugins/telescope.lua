@@ -70,7 +70,7 @@ return {
       local builtin = require 'telescope.builtin'
       local action_state = require 'telescope.actions.state'
       builtin.buffers({
-        initial_mode = 'normal',
+        initial_mode = 'insert',
         attach_mappings = function(prompt_bufnr, map)
           local delete_buf = function()
             local current_picker = action_state.get_current_picker(prompt_bufnr)
