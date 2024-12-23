@@ -22,6 +22,6 @@ require 'lazy-plugins'
 require 'neovide'
 
 -- [[ Setup autocommands ]]
-require 'custom.autocmds'
+require 'autocmds'
 
 -- vim: ts=2 sts=2 sw=2 et

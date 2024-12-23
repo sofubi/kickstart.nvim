@@ -30,7 +30,7 @@ local center = {
     desc = 'Find File ',
     key = 'f',
     icon = ' ',
-    action = 'require("telescope").extensions.smart_open.smart_open()',
+    action = 'require("fzf-lua").files',
     group = '@markup.heading.1.markdown',
   },
   {
@@ -51,15 +51,14 @@ local center = {
     desc = 'Nvim config ',
     key = 'c',
     icon = ' ',
-    action = 'require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config")})',
+    action = 'require("fzf-lua").find_files({ cwd = vim.fn.stdpath("config")})',
     group = '@markup.heading.4.markdown',
   },
   {
-    desc = 'Dots ',
+    desc = 'Dots',
     key = 'd',
     icon = ' ',
-    action = 'require("telescope").extensions.yadm.pick()',
-    group = '@markup.heading.5.markdown',
+    action = 'require("fzf-lua").find_files({ cmd = "yadm list --files -a" })',
   },
   {
     desc = 'Exit ',
