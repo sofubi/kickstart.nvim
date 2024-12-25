@@ -18,9 +18,6 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
--- [[ Configure Neovide specific options ]]
-require 'neovide'
-
 -- [[ Setup autocommands ]]
 require 'autocmds'
 

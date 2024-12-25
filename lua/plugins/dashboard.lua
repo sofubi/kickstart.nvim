@@ -41,10 +41,10 @@ local center = {
     group = '@markup.heading.2.markdown',
   },
   {
-    desc = 'Reload Session ',
+    desc = 'Sessions ',
     key = 'r',
     icon = ' ',
-    action = 'SessionLoad',
+    action = 'require("nvim-possession").list()',
     group = '@markup.heading.3.markdown',
   },
   {
