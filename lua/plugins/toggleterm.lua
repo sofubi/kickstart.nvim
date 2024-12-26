@@ -6,9 +6,22 @@ return {
     config = function()
       local toggleterm = require 'toggleterm'
       local Terminal = require('toggleterm.terminal').Terminal
-      local ipython = Terminal:new { cmd = 'uv tool run ipython', hidden = true, direction = 'vertical', close_on_exit = true }
+      local ipython = Terminal:new {
+        cmd = 'ipython',
+        hidden = true,
+        direction = 'vertical',
+        close_on_exit = true,
+        auto_scroll = true,
+      }
 
       toggleterm.setup {
+        size = function(term)
+          if term.direction == 'horizontal' then
+            return 15
+          elseif term.direction == 'vertical' then
+            return vim.o.columns * 0.4
+          end
+        end,
         open_mapping = [[<c-\>]],
         hide_numbers = true,
         autochdir = false,
