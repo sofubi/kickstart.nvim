@@ -1,7 +1,16 @@
 return {
   {
+    'saghen/blink.compat',
+    version = '*',
+    lazy = true,
+    opts = {},
+  },
+  {
     'saghen/blink.cmp',
-    dependencies = 'rafamadriz/friendly-snippets',
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+      'epwalsh/obsidian.nvim',
+    },
     version = '*',
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -23,16 +32,30 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = function(ctx)
-          local success, node = pcall(vim.treesitter.get_node)
-          if vim.bo.filetype == 'lua' then
-            return { 'lsp', 'path' }
-          elseif success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
-            return { 'buffer' }
-          else
-            return { 'lsp', 'path', 'snippets', 'buffer' }
-          end
-        end,
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'obsidian', 'obsidian_new', 'obsidian_tags' },
+        providers = {
+          obsidian = {
+            name = 'obsidian',
+            module = 'blink.compat.source',
+            opts = {
+              impersonate_nvim_cmp = true,
+            },
+          },
+          obsidian_new = {
+            name = 'obsidian_new',
+            module = 'blink.compat.source',
+            opts = {
+              impersonate_nvim_cmp = true,
+            },
+          },
+          obsidian_tags = {
+            name = 'obsidian_tags',
+            module = 'blink.compat.source',
+            opts = {
+              impersonate_nvim_cmp = true,
+            },
+          },
+        },
       },
       completion = {
         documentation = {

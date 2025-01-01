@@ -16,12 +16,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Spell and wrap for text
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup 'wrap_spell',
-  pattern = { 'text', 'plaintex', 'typst', 'gitcommit', 'markdown', 'norg' },
+  pattern = { 'text', 'plaintex', 'typst', 'gitcommit', 'norg' },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
     vim.opt_local.breakindent = true
     vim.opt_local.spell = true
+  end,
+})
+
+-- MD conceallevel
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup 'conceallevel_md',
+  pattern = { 'markdown' },
+  callback = function()
+    vim.opt.conceallevel = 2
   end,
 })
 
