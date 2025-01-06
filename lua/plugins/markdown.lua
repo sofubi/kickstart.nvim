@@ -18,6 +18,13 @@ return {
       { 'nvim-lua/plenary.nvim', 'ibhagwan/fzf-lua', 'nvim-treesitter/nvim-treesitter', 'saghen/blink.cmp' },
     },
     config = function()
+      local host = function()
+        if vim.fn.hostname() == 'thomas-lawton-MBP.local' then
+          return '~/Documents/sync_vault'
+        else
+          return '~/Notes/obsidian_notes/Notes'
+        end
+      end
       require('obsidian').setup {
         ui = {
           enable = true,
@@ -28,7 +35,7 @@ return {
         workspaces = {
           {
             name = 'personal',
-            path = '~/Notes/obsidian_notes/Notes',
+            path = host,
           },
         },
         daily_notes = {
