@@ -1,6 +1,9 @@
 return {
   {
     'olimorris/codecompanion.nvim',
+    enabled = function()
+      return vim.fn.hostname() == 'opossum.local'
+    end,
     lazy = false,
     dependencies = {
       'nvim-lua/plenary.nvim',

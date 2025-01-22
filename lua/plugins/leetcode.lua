@@ -2,7 +2,9 @@ local leet_arg = 'leetcode.nvim'
 return {
   {
     'kawre/leetcode.nvim',
-    build = ':TSUpdate html',
+    enabled = function()
+      return vim.fn.hostname() == 'opossum.local'
+    end,
     lazy = leet_arg ~= vim.fn.argv(0, -1),
     dependencies = {
       'ibhagwan/fzf-lua',
