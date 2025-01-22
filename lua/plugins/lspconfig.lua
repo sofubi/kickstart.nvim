@@ -139,7 +139,6 @@ return {
               analysis = {
                 autoSearchPaths = true,
                 useLibraryForCodeTypes = true,
-                diagnosticMode = 'openFilesOnly',
                 ignore = { '*' },
               },
             },
