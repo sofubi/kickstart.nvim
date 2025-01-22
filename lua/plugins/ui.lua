@@ -3,6 +3,9 @@ return {
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
+      notify = {
+        enabled = false,
+      },
       lsp = {
         override = {
           ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
@@ -20,14 +23,10 @@ return {
     },
     dependencies = {
       'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
     },
-    keys = {
-      {
-        '<leader>x',
-        '<cmd>NoiceDismiss<cr>',
-        desc = 'Dismiss notifs',
-      },
-    },
+  },
+  {
+    'stevearc/dressing.nvim',
+    config = true,
   },
 }

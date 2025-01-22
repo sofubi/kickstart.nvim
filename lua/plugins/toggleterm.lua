@@ -1,28 +1,44 @@
 return {
   {
-    'akinsho/toggleterm.nvim',
-    version = '*',
+    's1n7ax/nvim-terminal',
     event = 'VeryLazy',
     config = function()
-      local toggleterm = require 'toggleterm'
-      toggleterm.setup {
-        size = function(term)
-          if term.direction == 'horizontal' then
-            return 15
-          elseif term.direction == 'vertical' then
-            return vim.o.columns * 0.4
-          end
-        end,
-        open_mapping = [[<c-\>]],
-        hide_numbers = true,
-        autochdir = false,
-        persist_mode = true,
-        direction = 'float',
-        close_on_exit = true,
-        clear_env = false,
-        shell = vim.o.shell,
-        auto_scroll = true,
+      vim.o.hidden = true
+      require('nvim-terminal').setup {
+        window = {
+          position = 'vert',
+          split = 'vs',
+          width = 80,
+          height = 100,
+        },
+        disable_default_keymaps = true,
       }
     end,
+    keys = {
+      {
+        '<C-\\>',
+        function()
+          NTGlobal['terminal']:toggle()
+        end,
+        desc = 'Toggle terminal',
+        silent = true,
+      },
+      {
+        '<C-=>',
+        function()
+          NTGlobal['window']:change_width(10)
+        end,
+        desc = 'Toggle terminal',
+        silent = true,
+      },
+      {
+        '<C-->',
+        function()
+          NTGlobal['window']:change_width(-10)
+        end,
+        desc = 'Toggle terminal',
+        silent = true,
+      },
+    },
   },
 }

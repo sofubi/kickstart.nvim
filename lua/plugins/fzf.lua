@@ -113,6 +113,14 @@ return {
         end,
         desc = 'FZF Live Grep Glob',
       },
+      {
+        '<C-g>',
+        function()
+          require('fzf-lua').grep_visual()
+        end,
+        desc = 'FZF Grep Visual Selection',
+        mode = { 'v' },
+      },
       -- LSP
       {
         '<leader>cd',
@@ -138,9 +146,9 @@ return {
       {
         '<leader>cs',
         function()
-          require('fzf-lua').lsp_live_workspace_symbols()
+          require('fzf-lua').lsp_document_symbols()
         end,
-        desc = 'FZF LSP Live Workspace Symbols Search',
+        desc = 'FZF LSP Document Symbols',
       },
       -- misc
       {

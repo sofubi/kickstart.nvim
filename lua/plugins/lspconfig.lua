@@ -159,6 +159,11 @@ return {
             },
           },
         },
+        clangd = {
+          capabilities = {
+            offsetEncoding = { 'utf-16' },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -185,8 +190,8 @@ return {
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
-            set_caps = server.capabilities and server.capabilities ~= nil or {}
-            server.capabilities = vim.tbl_deep_extend('force', set_caps, require('blink.cmp').get_lsp_capabilities())
+            local SET_CAPS = server.capabilities and server.capabilities or {}
+            server.capabilities = vim.tbl_deep_extend('force', SET_CAPS, require('blink.cmp').get_lsp_capabilities())
             lspconfig[server_name].setup(server)
             require('lspconfig')[server_name].setup(server)
           end,

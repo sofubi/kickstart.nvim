@@ -17,9 +17,9 @@ vim.schedule(function()
 end)
 
 -- No wrap
-vim.opt.breakindent = true
+vim.opt.wrap = false
 vim.opt.sidescroll = 5
-vim.tbl_extend('keep', vim.opt.listchars, { 'preceds:<', 'extends:>' })
+vim.tbl_extend('keep', vim.opt.listchars, { 'precedes:<', 'extends:>' })
 
 -- Save undo history
 vim.opt.undofile = true
@@ -59,5 +59,10 @@ vim.opt.scrolloff = 10
 vim.g.python3_host_prog = '$HOME/.pyenv/versions/nvim3/bin/python3'
 vim.g.python2_host_prog = '$HOME/.pyenv/versions/nvim2/bin/python'
 vim.g.node_host_prog = '/usr/local/bin/neovim-node-host'
+
+-- Tabs
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 -- vim: ts=2 sts=2 sw=2 et
