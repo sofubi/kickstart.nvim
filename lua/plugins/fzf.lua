@@ -51,6 +51,13 @@ return {
     keys = {
       -- buffers / files
       {
+        '<leader>f',
+        function()
+          require('fzf-lua').files()
+        end,
+        desc = 'Git files',
+      },
+      {
         '<C-s>',
         function()
           _G.select_filetype_and_create_scratch()
@@ -60,45 +67,38 @@ return {
       {
         '<leader>,',
         function()
-          require('fzf-lua').resume()
+          require('fzf-lua').lgrep_curbuf()
         end,
-        desc = 'FZF Resume',
-      },
-      {
-        '<leader><leader>',
-        function()
-          require('fzf-lua').files()
-        end,
-        desc = 'FZF Files',
+        desc = 'Resume',
       },
       {
         '<leader>.',
         function()
           require('fzf-lua').buffers()
         end,
-        desc = 'FZF Buffers',
+        desc = 'Buffers',
       },
       -- git
+      {
+        '<leader><leader>',
+        function()
+          require('fzf-lua').git_files()
+        end,
+        desc = 'Files',
+      },
       {
         '<leader>gq',
         function()
           require('fzf-lua').live_grep { cmd = 'git grep --line-number --column' }
         end,
-        desc = 'FZF Live Git Grep',
+        desc = 'Live Git Grep',
       },
       {
         '<leader>gs',
         function()
           require('fzf-lua').git_status()
         end,
-        desc = 'FZF Git status',
-      },
-      {
-        '<leader>gf',
-        function()
-          require('fzf-lua').git_files()
-        end,
-        desc = 'FZF Git files',
+        desc = 'Git status',
       },
       -- search
       {
@@ -106,56 +106,63 @@ return {
         function()
           require('fzf-lua').quickfix()
         end,
-        desc = 'FZF Quickfix',
+        desc = 'Quickfix',
       },
       {
         '<leader>qg',
         function()
           require('fzf-lua').grep_quickfix()
         end,
-        desc = 'FZF Grep Quickfix',
+        desc = 'Grep Quickfix',
+      },
+      {
+        '<leader>qs',
+        function()
+          require('fzf-lua').quickfix_stack()
+        end,
+        desc = 'Quickfix',
       },
       {
         '<leader>sv',
         function()
           require('fzf-lua').grep_visual()
         end,
-        desc = 'FZF Grep Current Selection',
+        desc = 'Grep Current Selection',
       },
       {
         '<leader>sw',
         function()
           require('fzf-lua').grep_cword()
         end,
-        desc = 'FZF Grep Current Word',
+        desc = 'Grep Current Word',
       },
       {
         '<leader>sg',
         function()
           require('fzf-lua').live_grep()
         end,
-        desc = 'FZF Live Grep',
+        desc = 'Live Grep',
       },
       {
         '<leader>sr',
         function()
           require('fzf-lua').live_grep_resume()
         end,
-        desc = 'FZF Resume Live Grep',
+        desc = 'Resume Live Grep',
       },
       {
         '<leader>sG',
         function()
           require('fzf-lua').live_grep_glob()
         end,
-        desc = 'FZF Live Grep Glob',
+        desc = 'Live Grep Glob',
       },
       {
         '<C-g>',
         function()
           require('fzf-lua').grep_visual()
         end,
-        desc = 'FZF Grep Visual Selection',
+        desc = 'Grep Visual Selection',
         mode = { 'v' },
       },
       -- LSP
@@ -164,34 +171,41 @@ return {
         function()
           require('fzf-lua').diagnostics_document()
         end,
-        desc = 'FZF Document Diagnostics',
+        desc = 'Document Diagnostics',
       },
       {
         '<leader>cr',
         function()
           require('fzf-lua').lsp_references()
         end,
-        desc = 'FZF LSP References',
+        desc = 'LSP References',
       },
       {
-        '<leader>cf',
+        '<leader>cD',
         function()
           require('fzf-lua').lsp_definitions()
         end,
-        desc = 'FZF LSP Definitions',
+        desc = 'LSP Definitions',
       },
       {
         '<leader>cs',
         function()
           require('fzf-lua').lsp_document_symbols()
         end,
-        desc = 'FZF LSP Document Symbols',
+        desc = 'LSP Document Symbols',
       },
       -- misc
       {
         '<leader>lf',
         function()
           require('fzf-lua').builtin()
+        end,
+        desc = 'FZF Commands',
+      },
+      {
+        '<leader>j',
+        function()
+          require('fzf-lua').jumps()
         end,
         desc = 'FZF Commands',
       },

@@ -15,7 +15,12 @@ return {
         signcolumn = 'yes:2',
       },
       keymaps = {
-        ['gy'] = 'actions.yank_entry',
+        ['gy'] = {
+          'actions.yank_entry',
+          opts = {
+            modify = ':p:.',
+          },
+        },
       },
       view_options = {
         show_hidden = true,
